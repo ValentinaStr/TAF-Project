@@ -1,0 +1,7 @@
+﻿{
+	"Url": "https://cloud.google.com/",
+	"Browser": "Chrome",
+	"WebDriverTimeOut": 40,
+	"MinimumLogLevel": "Information",
+	"headless": "false"
+}
