@@ -1,6 +1,4 @@
-﻿using Core.DriverImplementation;
-
-namespace Business
+﻿namespace Business
 {
     public class BasePage
     {

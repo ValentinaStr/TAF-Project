@@ -1,15 +1,8 @@
-﻿using Core.DriverImplementation;
-using OpenQA.Selenium;
-
-namespace Business
+﻿namespace Business
 {
     public class PricingCalculatorPage : BasePage
     {
         #region locators
-        private readonly By InstancesFieldLocator = By.XPath("//input[@ng-model='listingCtrl.computeServer.quantity']");
-        private readonly By SeriesFieldLocator = By.XPath("//md-select[@ng-model='listingCtrl.computeServer.series']");
-        private readonly By MachineTypeFieldLocator = By.XPath("//md-select[@ng-model='listingCtrl.computeServer.machineType']");
-        private readonly By AddToEstimateButtonLocator = By.XPath("//button[@ng-click='listingCtrl.addComputeServer(listingCtrl.computeServer)']");
         private readonly By GPUTypeField = By.XPath("//md-select[@ng-model='listingCtrl.computeServer.gpuType']");
         private readonly By LocalSSDField = By.XPath("//md-select[@ng-model='listingCtrl.computeServer.localSsd']");
         private readonly By CommitedUsageField = By.XPath("//md-select[@ng-model='listingCtrl.computeServer.commitmentTerm']");
@@ -64,7 +57,6 @@ namespace Business
         public EstimateSummaryPage ReturnToEstimate()
         {
             ClickOpenEstimate();
-
             return new EstimateSummaryPage(driverAction);
         }
     }

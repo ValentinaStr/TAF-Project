@@ -1,7 +1,4 @@
-﻿using Core.DriverImplementation;
-using OpenQA.Selenium;
-
-namespace Business
+﻿namespace Business
 {
     public class EstimateSummaryPage : BasePage
     {

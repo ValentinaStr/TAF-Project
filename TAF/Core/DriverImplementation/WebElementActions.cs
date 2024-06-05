@@ -3,9 +3,10 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.WaitHelpers;
 
+
 namespace Core.DriverImplementation
 {
-    internal class WebElementActions
+    public class WebElementActions 
     {
         private readonly WebDriverWait wait;
 
@@ -66,6 +67,65 @@ namespace Core.DriverImplementation
             catch (WebDriverTimeoutException ex)
             {
                 Logger.LogError(ex, $"Timed out waiting for element to be visible: {by}");
+                throw;
+            }
+            catch (NoSuchElementException ex)
+            {
+                Logger.LogError(ex, $"Element not found: {by}");
+                throw;
+            }
+        }
+
+        public IWebElement GetElement(By by)
+        {
+            try
+            {
+                var element = wait.Until(ExpectedConditions.ElementExists(by));
+                Logger.LogInfo($"Found element located by: {by}");
+                return element;
+            }
+            catch (WebDriverTimeoutException ex)
+            {
+                Logger.LogError(ex, $"Timed out waiting for element to exist: {by}");
+                throw;
+            }
+            catch (NoSuchElementException ex)
+            {
+                Logger.LogError(ex, $"Element not found: {by}");
+                throw;
+            }
+        }
+
+        public void ClickChildElement(IWebElement parentElement, By childLocator)
+        {
+            try
+            {
+                parentElement.FindElement(childLocator).Click();
+                Logger.LogInfo($"Clicked on child element located by: {childLocator}");
+            }
+            catch (WebDriverTimeoutException ex)
+            {
+                Logger.LogError(ex, $"Timed out waiting for child element to be clickable: {childLocator}");
+                throw;
+            }
+            catch (NoSuchElementException ex)
+            {
+                Logger.LogError(ex, $"Child element not found: {childLocator}");
+                throw;
+            }
+        }
+
+        public void ClickEnter(By by)
+        {
+            try
+            {
+                var element = wait.Until(ExpectedConditions.ElementToBeClickable(by));
+                element.SendKeys(Keys.Enter);
+                Logger.LogInfo($"Sent 'Enter' key to the element located by: {by}");
+            }
+            catch (WebDriverTimeoutException ex)
+            {
+                Logger.LogError(ex, $"Timed out waiting for the element to be clickable: {by}");
                 throw;
             }
             catch (NoSuchElementException ex)

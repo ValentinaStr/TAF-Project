@@ -7,7 +7,7 @@ namespace Core.Utilits
         public static IEnumerable<T> GetTestData(string testDataFile)
         {
             var projectRoot = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "..");
-            var jsonFilePath = Path.Combine(projectRoot, "Core", "TestData", testDataFile);
+            var jsonFilePath = Path.Combine(projectRoot, "CloudGoogleTests", "TestData", testDataFile);
 
             if (!File.Exists(jsonFilePath))
             {

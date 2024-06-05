@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business", "Business\Business.csproj", "{9A029113-84CC-41EA-B414-C43F2BFF7381}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudGoogleTests", "CloudGoogleTests\CloudGoogleTests.csproj", "{9B930277-2B3A-44F0-9E36-AEBEC8FE4199}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{9A029113-84CC-41EA-B414-C43F2BFF7381}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9A029113-84CC-41EA-B414-C43F2BFF7381}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9A029113-84CC-41EA-B414-C43F2BFF7381}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B930277-2B3A-44F0-9E36-AEBEC8FE4199}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B930277-2B3A-44F0-9E36-AEBEC8FE4199}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B930277-2B3A-44F0-9E36-AEBEC8FE4199}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B930277-2B3A-44F0-9E36-AEBEC8FE4199}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

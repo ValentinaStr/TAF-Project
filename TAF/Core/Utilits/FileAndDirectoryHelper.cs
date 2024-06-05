@@ -18,6 +18,22 @@
             }
         }
 
+        public static bool CheckFileExistenceWithExtension(string defaultDownloadDirectory, string extension)
+        {
+            string[] filePaths = Directory.GetFiles(defaultDownloadDirectory, $"*{extension}");
+
+            if (filePaths.Length > 0)
+            {
+                Logger.LogInfo($"Found files with extension '{extension}' in directory: '{defaultDownloadDirectory}'.");
+                return true;
+            }
+            else
+            {
+                Logger.LogInfo($"No files with extension '{extension}' found in directory: '{defaultDownloadDirectory}'.");
+                return false;
+            }
+        }
+
         public static void ClearDefaultDownloadDirectory(string defaultDownloadDirectory)
         {
             if (!Directory.Exists(defaultDownloadDirectory))

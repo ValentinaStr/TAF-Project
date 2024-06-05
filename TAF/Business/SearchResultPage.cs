@@ -1,7 +1,4 @@
-﻿using Core.DriverImplementation;
-using OpenQA.Selenium;
-
-namespace Business
+﻿namespace Business
 {
     public class SearchResultPage : BasePage
     {
@@ -11,10 +8,10 @@ namespace Business
         {
         }
 
-        public WelcomePricingCalculator ClickPricingCalculatorLink()
+        public WelcomePricingCalculatorPage ClickPricingCalculatorLink()
         {
             driverAction.FindElementWithWaiterAndClick(PricingCalculator);
-            return new WelcomePricingCalculator(driverAction);
+            return new WelcomePricingCalculatorPage(driverAction);
         }
     }
 }

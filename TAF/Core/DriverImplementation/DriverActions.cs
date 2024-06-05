@@ -6,6 +6,8 @@ using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.WaitHelpers;
 using System.Collections.ObjectModel;
+using System.Xml.Linq;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Core.DriverImplementation
 {
@@ -14,7 +16,7 @@ namespace Core.DriverImplementation
         private readonly IWebDriver driver;
         private readonly WebDriverWait wait;
         private readonly Actions action;
-        private readonly WebElementActions webElementActions;
+        public readonly WebElementActions webElementActions;
 
         public DriverActions(string defaultDownloadDirectory, BrowserType browserType, bool headless = false)
         {
@@ -44,8 +46,27 @@ namespace Core.DriverImplementation
 
         public void ScrollDown()
         {
-            IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
-            js.ExecuteScript("window.scrollTo(0, document.body.scrollHeight);");
+            new Actions(driver).SendKeys(Keys.PageDown).Build().Perform();
+        }
+
+        public void ScrollUp()
+        {
+            new Actions(driver).SendKeys(Keys.PageUp).Build().Perform();
+        }
+
+
+        public void SelectValueInDropdownByCssSelector(By by, string value)
+        {
+            var dropDown = webElementActions.GetElement(by);
+            string selector = $"li[data-value='{value}']";
+            webElementActions.ClickChildElement(dropDown, By.CssSelector(selector));
+        }
+
+        public void SelectValueInDropdownByXPath(By by, string value)
+        {
+            var dropDown = webElementActions.GetElement(by);
+            string xpath = $"//li[@data-value='{value}']";
+            webElementActions.ClickChildElement(dropDown, By.XPath(xpath));
         }
 
         public void FindElementWithWaiterAndClick(By by)
@@ -61,6 +82,16 @@ namespace Core.DriverImplementation
         public string FindElementWithWaiterAndGetText(By by)
         {
             return webElementActions.GetText(by);
+        }
+
+        public void RefreshPage()
+        {
+            driver.Navigate().Refresh();
+        }
+
+        public void ClickEnter(By by)
+        {
+            webElementActions.ClickEnter(by);
         }
 
         public ReadOnlyCollection<IWebElement> FindElementsWithWaiter(By by)
@@ -106,16 +137,18 @@ namespace Core.DriverImplementation
             }
         }
 
-        public void WaitForFileDownload(string defaultDownloadDirectory, string fileName)
+        public void WaitForFileDownload(string defaultDownloadDirectory, string fileExtension)
         {
             try
             {
-                wait.Until(drv => FileAndDirectoryHelper.CheckFileExistence(defaultDownloadDirectory, fileName));
-                Logger.LogInfo($"File '{fileName}' was successfully downloaded to '{Path.Combine(defaultDownloadDirectory, fileName)}'.");
+                wait.Until(drv => Directory.Exists(defaultDownloadDirectory));
+                string[] files = Directory.GetFiles(defaultDownloadDirectory, $"*.{fileExtension}");
+                wait.Until(drv => files.Any());
+                Logger.LogInfo($"At least one file with '{fileExtension}' extension was successfully downloaded to '{defaultDownloadDirectory}'.");
             }
             catch (WebDriverTimeoutException ex)
             {
-                Logger.LogError(ex, $"Timed out waiting for file '{fileName}' to be downloaded.");
+                Logger.LogError(ex, $"Timed out waiting for a file with '{fileExtension}' extension to be downloaded.");
             }
         }
 
@@ -133,9 +166,9 @@ namespace Core.DriverImplementation
             }
         }
 
-        public void RefreshPage()
+        public void HideCookieNotification()
         {
-            driver.Navigate().Refresh();
+            ((IJavaScriptExecutor)driver).ExecuteScript("document.getElementsByClassName('glue-cookie-notification-bar')[0].style.display = 'none';");
         }
 
         public void Dispose()
