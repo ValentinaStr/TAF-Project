@@ -1,6 +1,6 @@
 ﻿namespace CloudGoogleTests.TestData.DataModels
 {
-    internal class DataModelForDownloadFileTests
+    internal class DataModelForDownloadFileTest
     {
         public required string TextToSearchField { get; set; }
         public required int NumberOfInstances { get; set; }

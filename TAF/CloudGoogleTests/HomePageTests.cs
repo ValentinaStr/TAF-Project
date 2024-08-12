@@ -3,11 +3,11 @@
     [TestFixture]
     internal class HomePageTests : BaseTest
     {
-        public static IEnumerable<object[]> DataForHomePageTests => TestDataReader<DataModelForTestsLanguageChangeReflectsInNavigationMenuHomePage>.GetTestData("DataForTestsLanguageChangeReflectsInNavigationMenuHomePage.json").Select(data => new object[] { data });
+        public static IEnumerable<object[]> DataForHomePageTests => TestDataReader<DataModelForLanguageChangeReflectsInNavigationMenuHomePageTest>.GetTestData("DataForTestLanguageChangeReflectsInNavigationMenuHomePage.json").Select(data => new object[] { data });
 
         [Test]
         [TestCaseSource(nameof(DataForHomePageTests))]
-        public void VerifyLanguageChangeReflectsInNavigationMenuPositive(DataModelForTestsLanguageChangeReflectsInNavigationMenuHomePage testData)
+        public void VerifyLanguageChangeReflectsInNavigationMenuPositive(DataModelForLanguageChangeReflectsInNavigationMenuHomePageTest testData)
         {
             homePageForTests.ChangeLanguage(testData.Language);
 
@@ -29,8 +29,6 @@
                 Assert.That(menu, Does.Contain(testData.StartFree), message + testData.StartFree);
             }
         }
-
-
 
     }
 }

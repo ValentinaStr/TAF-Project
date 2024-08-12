@@ -1,6 +1,6 @@
 ﻿namespace CloudGoogleTests.TestData.DataModels
 {
-    internal class DataModelForTestsLanguageChangeReflectsInNavigationMenuHomePage
+    internal class DataModelForLanguageChangeReflectsInNavigationMenuHomePageTest
     {
         public required string Language { get; set; }
         public required string Overview { get; set; }

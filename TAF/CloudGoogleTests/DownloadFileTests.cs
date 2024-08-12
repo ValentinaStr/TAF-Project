@@ -3,11 +3,11 @@
     [TestFixture]
     internal class DownloadFileTests : BaseTest
     {
-        public static IEnumerable<object[]> DataForTestFileDownload => TestDataReader<DataModelForDownloadFileTests>.GetTestData("DataForTestFileDownload.json").Select(data => new object[] { data });
+        public static IEnumerable<object[]> DataForTestFileDownload => TestDataReader<DataModelForDownloadFileTest>.GetTestData("DataForTestFileDownload.json").Select(data => new object[] { data });
 
         [Test]
         [TestCaseSource(nameof(DataForTestFileDownload))]
-        public void ValidateFileDownloadFunctionWorksExpectedPositive(DataModelForDownloadFileTests testData)
+        public void ValidateFileDownloadFunctionWorksExpectedPositive(DataModelForDownloadFileTest testData)
         {
             homePageForTests.AddTextToSearchField(testData.TextToSearchField);
             var surchResultPage = homePageForTests.OpenSurchResult();
