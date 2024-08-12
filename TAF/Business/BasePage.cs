@@ -2,7 +2,7 @@
 {
     public class BasePage
     {
-        protected DriverActions driverAction {  get; set; }
+        protected DriverActions driverAction { get; set; }
         protected BasePage(DriverActions driverAction)
         {
             this.driverAction = driverAction;

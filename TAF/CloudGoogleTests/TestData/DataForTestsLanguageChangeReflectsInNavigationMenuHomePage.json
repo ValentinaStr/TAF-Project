@@ -1,0 +1,93 @@
+[
+    {
+        "Language": "en",
+        "Overview": "Overview",
+        "Solutions": "Solutions",
+        "Products": "Products",
+        "Pricing": "Pricing",
+        "Resources": "Resources",
+        "ContactUs": "Contact Us",
+        "Docs": "Docs",
+        "Support": "Support",
+        "SignIn": "Sign in",
+        "StartFree": "Start free"
+    },
+    {
+        "Language": "de",
+        "Overview": "Überblick",
+        "Solutions": "Lösungen",
+        "Products": "Produkte",
+        "Pricing": "Preise",
+        "Resources": "Ressourcen",
+        "ContactUs": "Kontakt",
+        "Docs": "Docs",
+        "Support": "Support",
+        "SignIn": "Anmelden",
+        "StartFree": "Jetzt kostenlos testen"
+    },
+    {
+        "Language": "es",
+        "Overview": "Información General",
+        "Solutions": "Soluciones",
+        "Products": "Productos",
+        "Pricing": "Precios",
+        "Resources": "Recursos",
+        "ContactUs": "Contactar",
+        "Docs": "Documentos",
+        "Support": "Asistencia",
+        "SignIn": "Iniciar sesión",
+        "StartFree": "Empezar gratis"
+    },
+    {
+        "Language": "fr",
+        "Overview": "Présentation",
+        "Solutions": "Solutions",
+        "Products": "Produits",
+        "Pricing": "Tarification",
+        "Resources": "Ressources",
+        "ContactUs": "Nous Contacter",
+        "Docs": "Documentation",
+        "Support": "Assistance",
+        "SignIn": "Se connecter",
+        "StartFree": "Commencez l'essai gratuit."
+    },
+    {
+        "Language": "it",
+        "Overview": "Panoramica",
+        "Solutions": "Soluzioni",
+        "Products": "Prodotti",
+        "Pricing": "Prezzi",
+        "Resources": "Risorse",
+        "ContactUs": "Contattaci",
+        "Docs": "Documenti",
+        "Support": "Assistenza",
+        "SignIn": "Accedi",
+        "StartFree": "Inizia gratuitamente"
+    },
+    {
+        "Language": "zh-CN",
+        "Overview": "概览",
+        "Solutions": "解决方案",
+        "Products": "产品",
+        "Pricing": "价格",
+        "Resources": "资源",
+        "ContactUs": "联系我们",
+        "Docs": "文档",
+        "Support": "支持",
+        "SignIn": "登录",
+        "StartFree": "免费开始使用吧"
+    },
+    {
+        "Language": "ja",
+        "Overview": "概要",
+        "Solutions": "ソリューション",
+        "Products": "プロダクト",
+        "Pricing": "料金",
+        "Resources": "リソース",
+        "ContactUs": "お問い合わせ",
+        "Docs": "ドキュメント",
+        "Support": "サポート",
+        "SignIn": "ログイン",
+        "StartFree": "無料で利用開始"
+    }
+]

@@ -10,6 +10,7 @@
         private readonly By OpenEstimateField = By.XPath("//button[@ng-click='listingCtrl.openEmailForm()']");
         private readonly By CostLocator = By.XPath("//div[@class='md-list-item-text ng-binding']");
         #endregion
+
         public PricingCalculatorPage(DriverActions driverAction) : base(driverAction)
         {
         }
@@ -61,4 +62,3 @@
         }
     }
 }
-

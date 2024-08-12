@@ -6,8 +6,6 @@ using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.WaitHelpers;
 using System.Collections.ObjectModel;
-using System.Xml.Linq;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace Core.DriverImplementation
 {

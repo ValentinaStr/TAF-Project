@@ -1,4 +1,4 @@
-﻿namespace CloudGoogleTests.TestData
+﻿namespace CloudGoogleTests.TestData.DataModels
 {
     internal class DataModelForDownloadFileTests
     {
