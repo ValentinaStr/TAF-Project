@@ -1,5 +1,10 @@
 [
     {
+        "TextToSearchField": "Google Cloud Platform Pricing Calculator",
+        "NumberOfInstances": 4,
+        "MachineType": "n1-standard-8",
+        "GPUsType": "nvidia-tesla-p100",
+        "LocalSSD": "2",
         "FileName": ".csv"
     }
 ]

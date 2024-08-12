@@ -7,27 +7,23 @@
 
         [Test]
         [TestCaseSource(nameof(DataForTestFileDownload))]
-        public void ValidateFileDownloadFunctionWorksExpectedPositive(DataModelForDownloadFileTests DataForTestFileDownload)
+        public void ValidateFileDownloadFunctionWorksExpectedPositive(DataModelForDownloadFileTests testData)
         {
-            var fileName = DataForTestFileDownload.FileName;
-            homePageForTests.AddTextToSearchField("Google Cloud Platform Pricing Calculator");
-
+            homePageForTests.AddTextToSearchField(testData.TextToSearchField);
             var surchResultPage = homePageForTests.OpenSurchResult();
             var welcomePricingCalculatorPage = surchResultPage.ClickPricingCalculatorLink();
             welcomePricingCalculatorPage.ClickAddToEstimateButton();
             var computeEnginePage = welcomePricingCalculatorPage.ClickComputeEngineItem();
-
-            computeEnginePage.AddNumberOfInstances(4);
-            computeEnginePage.SelectMachineType("n1-standard-8");
-            computeEnginePage.AddGPUsType("nvidia-tesla-p100");
-            computeEnginePage.ChooseAddLocalSSD("2");
+            computeEnginePage.AddNumberOfInstances(testData.NumberOfInstances);
+            computeEnginePage.SelectMachineType(testData.MachineType);
+            computeEnginePage.AddGPUsType(testData.GPUsType);
+            computeEnginePage.ChooseAddLocalSSD(testData.LocalSSD);
             computeEnginePage.DownloadEstimateCsv();
-            computeEnginePage.WaitForFileDownload(defaultDownloadDirectory, ".csv");
+            computeEnginePage.WaitForFileDownload(defaultDownloadDirectory, testData.FileName);
 
-            var result = FileAndDirectoryHelper.CheckFileExistenceWithExtension(defaultDownloadDirectory, fileName);
+            var result = FileAndDirectoryHelper.CheckFileExistenceWithExtension(defaultDownloadDirectory, testData.FileName);
 
-            Assert.That(result, Is.True, $"File {fileName} download failed");
+            Assert.That(result, Is.True, $"File {testData.FileName} download failed");
         }
-
     }
 }
