@@ -1,6 +1,6 @@
 ﻿namespace CloudGoogleTests.TestData.DataModels
 {
-    internal class DataModelForSearchValidationTest
+    internal class DataModelForPositiveSearchValidationTest
     {
         public required string TextToSearchField { get; set; }
     }

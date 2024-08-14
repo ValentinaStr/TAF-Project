@@ -18,7 +18,7 @@
             driverAction.FindElementWithWaiterAndEnterText(SearchField, text);
         }
 
-        public SearchResultPage OpenSurchResult()
+        public SearchResultPage OpenSearchResult()
         {
             driverAction.ClickEnter(SearchField);
             return new SearchResultPage(driverAction);

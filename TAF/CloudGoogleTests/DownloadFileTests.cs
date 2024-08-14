@@ -10,7 +10,7 @@
         public void ValidateFileDownloadFunctionWorksExpectedPositive(DataModelForDownloadFileTest testData)
         {
             homePageForTests.AddTextToSearchField(testData.TextToSearchField);
-            var surchResultPage = homePageForTests.OpenSurchResult();
+            var surchResultPage = homePageForTests.OpenSearchResult();
             var welcomePricingCalculatorPage = surchResultPage.ClickPricingCalculatorLink();
             welcomePricingCalculatorPage.ClickAddToEstimateButton();
             var computeEnginePage = welcomePricingCalculatorPage.ClickComputeEngineItem();
